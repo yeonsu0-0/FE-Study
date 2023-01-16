@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+// import NotificationList from "./State/NotificationList";
+import DiaryEditor from "./SimpleDiary/DiaryEditor";
 
-import NotificationList from './State/NotificationList';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <NotificationList />
+    <DiaryEditor />
   </React.StrictMode>
 );
 
