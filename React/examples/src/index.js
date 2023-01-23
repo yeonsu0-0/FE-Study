@@ -2,13 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
 // import NotificationList from "./State/NotificationList";
-import DiaryEditor from "./SimpleDiary/DiaryEditor";
+// import DiaryEditor from "./SimpleDiary/DiaryEditor";
+// import Counter from "./State/Counter";
+// import Say from "./State/Say";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <DiaryEditor />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
