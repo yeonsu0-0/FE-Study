@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 // 서버로부터 데이터 불러오기
 // 1. fetch
@@ -15,31 +16,36 @@ import { useState, useEffect } from "react";
 const Todo = () => {
   const [todoList, setTodoList] = useState([]);
 
-  const fetchData = () => {
-    fetch("http://localhost:4000/api/todo")
-      .then((response) => response.json())
-      .then((data) => setTodoList(data));
+  const fetchData = async () => {
+    const { data } = await axios.get("http://localhost:4000/api/todo");
+    setTodoList(data);
+    // fetch("http://localhost:4000/api/todo")
+    //   .then((response) => response.json())
+    //   .then((data) => setTodoList(data));
   };
 
   const onSubmitHandler = (e) => {
+    e.preventDefault();
     const text = e.target.text.value;
     const done = e.target.done.checked;
-    fetch("http://localhost:4000/api/todo", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        text,
-        done,
-      }),
-    }).then(() => fetchData());
+    axios.post("http://localhost:4000/api/todo", { text, done });
+    fetchData();
+    // fetch("http://localhost:4000/api/todo", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     text,
+    //     done,
+    //   }),
+    // }).then(() => fetchData());
   };
 
   // 서버로부터 데이터 받아오기(처음 렌더링 됐을 때만)
   useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   return (
     <div className="todo">
