@@ -1,12 +1,14 @@
 // import React, { useState } from "react";
 // import axios from "axios";
-import NewsList from "./NewsAPI/NewsList";
-import Categories from "./NewsAPI/Categories";
+// import NewsList from "./NewsAPI/NewsList";
+// import Categories from "./NewsAPI/Categories";
+// import Header from "./NewsAPI/Header";
+// import { useState, useCallback } from "react";
+import Todo from "./fetch/client/Todo";
 // import { Route, Routes } from "react-router-dom";
 // import About from "./Route/About";
 // import Home from "./Route/Home";
 // import Profile from "./Route/Profile";
-import { useState, useCallback } from "react";
 
 // axios로 API 호출
 /* 
@@ -58,12 +60,18 @@ function App() {
 */
 
 const App = () => {
-  const [category, setCategory] = useState("all");
-  const onSelect = useCallback((category) => setCategory(category), []);
+  // const [category, setCategory] = useState("all");
+  // const onSelect = useCallback((category) => setCategory(category), []);
+  // return (
+  //   <>
+  //     <Header />
+  //     <Categories category={category} onSelect={onSelect} />
+  //     <NewsList category={category} />
+  //   </>
+  // );
   return (
     <>
-      <Categories category={category} onSelect={onSelect} />
-      <NewsList category={category} />
+      <Todo />
     </>
   );
 };
